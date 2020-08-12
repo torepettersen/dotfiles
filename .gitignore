@@ -1,0 +1,12 @@
+/*
+
+/* Gitignore */
+!.gitignore
+
+/* Neovim */
+!.config
+.config/*
+!.config/nvim
+
+.netrwhist
+
