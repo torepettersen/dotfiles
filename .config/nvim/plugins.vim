@@ -7,11 +7,14 @@ endif
 
 call plug#begin("~/.vim/plugged")
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
+Plug 'lambdalisue/suda.vim'
 
 " Themes
 Plug 'joshdick/onedark.vim'

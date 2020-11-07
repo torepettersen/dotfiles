@@ -25,16 +25,25 @@ set encoding=utf-8
 set nowrap
 set cursorline
 set updatetime=300
+set mouse=a
 
 " Split
 :set splitbelow
 :set splitright
 
 " FZF
-let g:fzf_layout = { 'window': 'enew' }
-let $FZF_DEFAULT_COMMAND = 'rg --files'
-nnoremap <silent> <leader>f :FZF<cr>
-nnoremap <silent> <leader>F :FZF ~<cr>
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>F :Files ~<cr>
+nnoremap <silent> <leader>g :Rg<cr>
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'onedark'
+
+set noshowmode
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
@@ -57,7 +66,7 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 " Save 
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>=gi
-command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+nnoremap <leader>W :w suda://%<CR>
 
 " Search
 nnoremap * :let @/='\<'.expand('<cword>').'\>'<bar>set hlsearch<CR>
