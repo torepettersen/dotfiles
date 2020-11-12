@@ -25,7 +25,6 @@ set encoding=utf-8
 set nowrap
 set cursorline
 set updatetime=300
-set mouse=a
 
 " Split
 :set splitbelow
@@ -33,7 +32,7 @@ set mouse=a
 
 " FZF
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>F :Files ~<cr>
 nnoremap <silent> <leader>g :Rg<cr>
@@ -75,6 +74,9 @@ nnoremap <CR> :set nohlsearch<CR>
 " Quit
 nnoremap <silent> <leader>q :quit<CR>
 nnoremap <silent> <leader>Q :quitall<CR>
+
+" Buffers
+nnoremap <leader>c :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Reload vim config
 nnoremap <leader>r :so $MYVIMRC<CR>
