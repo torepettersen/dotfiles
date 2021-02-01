@@ -7,6 +7,8 @@ endif
 
 call plug#begin("~/.vim/plugged")
 
+Plug 'neovim/nvim-lspconfig', { 'as': 'lspconfig' }
+Plug 'nvim-lua/completion-nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -18,6 +20,7 @@ Plug 'lambdalisue/suda.vim'
 
 " Themes
 Plug 'joshdick/onedark.vim'
+Plug 'embark-theme/vim', { 'as': 'embark' }
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -43,3 +46,4 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+

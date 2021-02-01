@@ -1,5 +1,6 @@
 
 source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/lsp.vim
 
 " Enable truecolors
 if (has("termguicolors"))
@@ -14,9 +15,9 @@ colorscheme onedark
 set clipboard=unnamedplus
 
 " Tabs and spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Editor UI
@@ -29,6 +30,17 @@ set updatetime=300
 " Split
 :set splitbelow
 :set splitright
+
+" Completion
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
 
 " FZF
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
@@ -83,6 +95,12 @@ nnoremap <leader>r :so $MYVIMRC<CR>
 
 " Rustfmt
 let g:rustfmt_autosave = 1
+
+" Load .env for Elixir projects
+let gitroot = trim(system('git rev-parse --show-toplevel'))
+if len(glob(gitroot . '/mix.exs'))
+  autocmd VimEnter * if exists(':Dotenv') | exe 'Dotenv! ' . gitroot | endif
+endif
 
 " Mix format
 let g:mix_format_on_save = 1
