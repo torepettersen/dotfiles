@@ -4,13 +4,19 @@
 
 ```
 # Install dependencies
-sudo eopkg upgrade
-sudo eopkg install git curl alacritty bat ripgrep postgresql postgresql-contrib dbeaver insomnia byobu 
+sudo eopkg upgrade -y
+sudo eopkg install -y git curl alacritty bat ripgrep docker postgresql postgresql-contrib dbeaver insomnia byobu
 sudo eopkg install -c system.devel
 
 # Setup git
 git config --global user.name "Tore Pettersen"
 git config --global user.email "toreskog@live.com"
+
+# Setup docker
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 # Start postgres
 sudo systemctl enable postgresql
