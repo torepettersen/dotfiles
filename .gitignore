@@ -3,10 +3,17 @@
 /* Gitignore */
 !.gitignore
 
-/* Neovim */
+/* README.md */
+!README.md
+
 !.config
 .config/*
+
+/* Neovim */
 !.config/nvim
+
+/* Alacritty */
+!.config/alacritty
 
 .netrwhist
 
