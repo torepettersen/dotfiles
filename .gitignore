@@ -9,6 +9,10 @@
 !.config
 .config/*
 
+/* LunarVim */
+!.config/lvim/
+.config/lvim/plugin/*
+
 /* Neovim */
 !.config/nvim
 
