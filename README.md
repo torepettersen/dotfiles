@@ -5,7 +5,7 @@
 ```
 # Install dependencies
 sudo eopkg upgrade -y
-sudo eopkg install -y git curl alacritty bat ripgrep docker postgresql postgresql-contrib dbeaver insomnia byobu
+sudo eopkg install -y git curl alacritty bat ripgrep docker postgresql postgresql-contrib dbeaver insomnia byobu xclip gcc make zlib-devel bzip2-devel readline-devel sqlite3-devel openssl-devel tk-devel xz-devel
 sudo eopkg install -c system.devel
 
 # Setup git
