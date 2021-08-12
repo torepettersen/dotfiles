@@ -31,6 +31,7 @@ lvim.builtin.which_key.mappings["b"] = {
   D = {"<cmd>BufferOrderByDirectory<CR>", "Order by directory"},
 }
 
+lvim.keys.term_mode = {}
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.galaxyline.active = true
@@ -43,7 +44,7 @@ lvim.builtin.compe.documentation = true
 lvim.lang.elixir.formatters = {
   {
     exe = "mix",
-    args = {"fmt"}, 
+    args = {"fmt"},
   },
 }
 
