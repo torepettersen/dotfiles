@@ -34,11 +34,11 @@ lvim.builtin.which_key.mappings["b"] = {
 lvim.keys.term_mode = {}
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.galaxyline.active = true
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.compe.autocomplete = true
-lvim.builtin.compe.documentation = true
+
+-- FZF
+vim.env.FZF_DEFAULT_COMMAND = 'rg --files'
 
 -- Elixir
 lvim.lang.elixir.formatters = {
