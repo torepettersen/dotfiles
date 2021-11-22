@@ -19,8 +19,7 @@ vim.api.nvim_set_keymap("n", "<TAB>", ":BufferNext<CR>", { noremap = true, silen
 vim.api.nvim_set_keymap("n", "<S-TAB>", ":BufferPrevious<CR>", { noremap = true, silent = true })
 
 -- Which key
-lvim.builtin.which_key.mappings["f"] = {"<cmd>FzfLua files<CR>", "Find file"}
-lvim.builtin.which_key.mappings["l"] = {"<cmd>FzfLua live_grep<CR>", "Live grep"}
+lvim.builtin.which_key.mappings["l"] = {"<cmd>Telescope live_grep<cr>", "Live grep"}
 lvim.builtin.which_key.mappings["b"] = {
   name = "+Buffers",
   t = {"<cmd>BufferPin<CR>", "Pin buffer"},
@@ -31,33 +30,21 @@ lvim.builtin.which_key.mappings["b"] = {
   D = {"<cmd>BufferOrderByDirectory<CR>", "Order by directory"},
 }
 
-lvim.keys.term_mode = {}
-
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.active = false
 lvim.builtin.project.manual_mode = true
 
--- Elixir
-lvim.lang.elixir.formatters = {
-  {
-    exe = "mix",
-    args = {"fmt"},
-  },
+-- Telescope
+local actions = require "telescope.actions"
+lvim.builtin.telescope.defaults.mappings.i = {
+  ["<C-j>"] = actions.move_selection_next,
+  ["<C-k>"] = actions.move_selection_previous,
 }
 
 -- Additional Plugins
 lvim.plugins = {
   {"joshdick/onedark.vim"},
-  {"ibhagwan/fzf-lua",
-    requires = {
-      "vijaymarupudi/nvim-fzf",
-      "kyazdani42/nvim-web-devicons"
-    },
-    config = function()
-      require('fzf-lua').setup({ fzf_opts = {['--layout'] = 'default'} })
-    end
-  },
 }
 
