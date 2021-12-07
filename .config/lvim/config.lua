@@ -11,12 +11,27 @@ lvim.colorscheme = "onedark"
 lvim.leader = "space"
 
 -- Save
-vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-s>", "<ESC>:w<CR>", { noremap = true, silent = true })
+lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
+lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>"
 
 -- Buffers
-vim.api.nvim_set_keymap("n", "<TAB>", ":BufferNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<S-TAB>", ":BufferPrevious<CR>", { noremap = true, silent = true })
+lvim.keys.normal_mode["<TAB>"] = ":BufferNext<CR>"
+lvim.keys.normal_mode["<S-TAB>"] = ":BufferPrevious<CR>"
+
+-- Telescope
+local _, actions = pcall(require, "telescope.actions")
+lvim.builtin.telescope.defaults.mappings = {
+  i = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+    ["<C-n>"] = actions.cycle_history_next,
+    ["<C-p>"] = actions.cycle_history_prev,
+  },
+  n = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+  },
+}
 
 -- Which key
 lvim.builtin.which_key.mappings["l"] = {"<cmd>Telescope live_grep<cr>", "Live grep"}
@@ -36,11 +51,17 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.active = false
 lvim.builtin.project.manual_mode = true
 
--- Telescope
-local actions = require "telescope.actions"
-lvim.builtin.telescope.defaults.mappings.i = {
-  ["<C-j>"] = actions.move_selection_next,
-  ["<C-k>"] = actions.move_selection_previous,
+lvim.builtin.treesitter.ensure_installed = {
+  "bash",
+  "elixir",
+  "heex",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "css",
+  "rust",
+  "yaml",
 }
 
 -- Additional Plugins
