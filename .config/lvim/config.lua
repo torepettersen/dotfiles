@@ -15,8 +15,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>"
 
 -- Buffers
-lvim.keys.normal_mode["<TAB>"] = ":BufferNext<CR>"
-lvim.keys.normal_mode["<S-TAB>"] = ":BufferPrevious<CR>"
+lvim.keys.normal_mode["<TAB>"] = ":bnext<CR>"
+lvim.keys.normal_mode["<S-TAB>"] = ":bprevious<CR>"
 
 -- Telescope
 local _, actions = pcall(require, "telescope.actions")
