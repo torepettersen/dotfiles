@@ -15,8 +15,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 lvim.keys.insert_mode["<C-s>"] = "<ESC>:w<CR>"
 
 -- Buffers
-lvim.keys.normal_mode["<TAB>"] = ":BufferNext<CR>"
-lvim.keys.normal_mode["<S-TAB>"] = ":BufferPrevious<CR>"
+lvim.keys.normal_mode["<TAB>"] = ":bnext<CR>"
+lvim.keys.normal_mode["<S-TAB>"] = ":bprevious<CR>"
 
 -- Telescope
 local _, actions = pcall(require, "telescope.actions")
@@ -46,7 +46,7 @@ lvim.builtin.which_key.mappings["b"] = {
 }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
+lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.active = false
 lvim.builtin.project.manual_mode = true
