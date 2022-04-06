@@ -1,7 +1,6 @@
 
 -- general
 vim.opt.relativenumber = true
-vim.g.nvim_tree_disable_netrw = false
 
 lvim.format_on_save = true
 lvim.lint_on_save = true
@@ -50,6 +49,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.active = false
 lvim.builtin.project.manual_mode = true
+lvim.builtin.nvimtree.setup.disable_netrw = false
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
