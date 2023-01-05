@@ -1,10 +1,9 @@
-
 -- general
 vim.opt.relativenumber = true
 
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "onedark"
+lvim.colorscheme = "lunar"
 
 -- keymappings
 lvim.leader = "space"
@@ -33,20 +32,21 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- Which key
-lvim.builtin.which_key.mappings["l"] = {"<cmd>Telescope live_grep<cr>", "Live grep"}
+lvim.builtin.which_key.mappings["l"] = { "<cmd>Telescope live_grep<cr>", "Live grep" }
 lvim.builtin.which_key.mappings["b"] = {
   name = "+Buffers",
-  t = {"<cmd>BufferPin<CR>", "Pin buffer"},
-  e = {"<cmd>BufferCloseAllButCurrent<CR>", "Close all, but current buffer"},
-  r = {"<cmd>BufferCloseAllButPinned<CR>", "Close all, but pinned buffers"},
-  j = {"<cmd>BufferPick<CR>", "Jump to buffer"},
-  c = {"<cmd>BufferClose<CR>", "Close buffer"},
-  D = {"<cmd>BufferOrderByDirectory<CR>", "Order by directory"},
+  t = { "<cmd>BufferPin<CR>", "Pin buffer" },
+  e = { "<cmd>BufferCloseAllButCurrent<CR>", "Close all, but current buffer" },
+  r = { "<cmd>BufferCloseAllButPinned<CR>", "Close all, but pinned buffers" },
+  j = { "<cmd>BufferPick<CR>", "Jump to buffer" },
+  c = { "<cmd>BufferClose<CR>", "Close buffer" },
+  D = { "<cmd>BufferOrderByDirectory<CR>", "Order by directory" },
 }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.terminal.open_mapping = [[<C-t>]]
 lvim.builtin.nvimtree.active = false
 lvim.builtin.project.manual_mode = true
 lvim.builtin.nvimtree.setup.disable_netrw = false
@@ -66,6 +66,5 @@ lvim.builtin.treesitter.ensure_installed = {
 
 -- Additional Plugins
 lvim.plugins = {
-  {"joshdick/onedark.vim"},
+  { "joshdick/onedark.vim" },
 }
-
