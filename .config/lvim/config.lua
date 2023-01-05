@@ -31,6 +31,48 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
+-- Projectionist
+vim.api.nvim_set_var('projectionist_heuristics', {
+  ['mix.exs|lib/*.ex'] = {
+    ['lib/**/live/*_live.ex'] = {
+      alternate = 'lib/{dirname}/live/{basename}_live.html.heex',
+      type = 'source',
+      template = {
+        "defmodule {dirname|camelcase|capitalize}.{basename|camelcase|capitalize}Live do",
+        "  use {dirname|camelcase|capitalize}, :live_view",
+        "",
+        "  def mount(_params, _session, socket) do",
+        "    {open}:ok, socket{close}",
+        "  end",
+        "end"
+      },
+    },
+    ['lib/**/live/*_live.html.heex'] = {
+      alternate = 'lib/{dirname}/live/{basename}_live.ex',
+      type = 'template',
+    },
+    ['lib/*.ex'] = {
+      alternate = 'test/{}_test.exs',
+      type = 'source',
+      template = {
+        "defmodule {camelcase|capitalize|dot} do",
+        "end"
+      },
+    },
+    ['test/*_test.exs'] = {
+      alternate = 'lib/{}.ex',
+      type = 'source',
+      template = {
+        "defmodule {camelcase|capitalize|dot}Test do",
+        "  use ExUnit.Case, async: true",
+        "",
+        "  alias {camelcase|capitalize|dot}",
+        "end"
+      },
+    },
+  },
+})
+
 -- Which key
 lvim.builtin.which_key.mappings["l"] = { "<cmd>Telescope live_grep<cr>", "Live grep" }
 lvim.builtin.which_key.mappings["b"] = {
@@ -42,6 +84,8 @@ lvim.builtin.which_key.mappings["b"] = {
   c = { "<cmd>BufferClose<CR>", "Close buffer" },
   D = { "<cmd>BufferOrderByDirectory<CR>", "Order by directory" },
 }
+lvim.builtin.which_key.mappings["a"] = { "<cmd>A<cr>", "Jump to test" }
+lvim.builtin.which_key.mappings["e"] = { "<cmd>Explore<cr>", "Explore" }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -67,4 +111,5 @@ lvim.builtin.treesitter.ensure_installed = {
 -- Additional Plugins
 lvim.plugins = {
   { "joshdick/onedark.vim" },
+  { "tpope/vim-projectionist" },
 }
