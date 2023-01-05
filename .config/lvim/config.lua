@@ -3,7 +3,7 @@ vim.opt.relativenumber = true
 
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "onedark"
+lvim.colorscheme = "lunar"
 
 -- keymappings
 lvim.leader = "space"
@@ -46,7 +46,7 @@ lvim.builtin.which_key.mappings["b"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.terminal.open_mapping = [[<C-T>]]
+lvim.builtin.terminal.open_mapping = [[<C-t>]]
 lvim.builtin.nvimtree.active = false
 lvim.builtin.project.manual_mode = true
 lvim.builtin.nvimtree.setup.disable_netrw = false
