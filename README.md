@@ -10,7 +10,7 @@ sudo eopkg install -c system.devel
 
 # Install dependencies Arch
 yay -S fish neovim bat ripgrep fd dbeaver rtx-bin insomina-bin
-chsh -S /bin/fish
+chsh -s /bin/fish
 
 # Erlang dependencies
 yay -S ncurses glu mesa wxwidgets-gtk3 libpng libssh libxslt fop
