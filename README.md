@@ -3,10 +3,18 @@
 ## Post install
 
 ```
-# Install dependencies
+# Install dependencies Solus
 sudo eopkg upgrade -y
-sudo eopkg install -y git curl alacritty bat ripgrep docker postgresql postgresql-contrib dbeaver insomnia byobu xclip gcc make zlib-devel bzip2-devel readline-devel sqlite3-devel openssl-devel tk-devel xz-devel
+sudo eopkg install -y git curl fish neovim bat ripgrep fd dbeaver insomnia
 sudo eopkg install -c system.devel
+
+# Install dependencies Arch
+yay -S fish neovim bat ripgrep fd dbeaver rtx-bin insomina-bin
+chsh -S /bin/fish
+
+# Erlang dependencies
+yay -S ncurses glu mesa wxwidgets-gtk3 libpng libssh libxslt fop
+KERL_BUILD_DOCS=yes rtx install erlang
 
 # Setup git
 git config --global user.name "Tore Pettersen"
@@ -29,7 +37,7 @@ git pull origin master
 ```
 
 ## Set Postgres password
-
+	
 1. Run the psql command from the postgres user account:
   ```
   sudo -u postgres psql postgres
