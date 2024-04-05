@@ -19,5 +19,8 @@
 /* Alacritty */
 !.config/alacritty
 
+/* NvChad */
+!.config/nvchad
+
 .netrwhist
 
