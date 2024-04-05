@@ -22,5 +22,8 @@
 /* NvChad */
 !.config/nvchad
 
+/* Fish */
+!.config/fish
+
 .netrwhist
 
