@@ -52,3 +52,6 @@ map("n", "<leader>tf", functions.tests.run_file, { desc = "Run file" })
 map("n", "<leader>ts", functions.tests.toggle_summary, { desc = "Toggle summary" })
 map("n", "<leader>to", functions.tests.show_output, { desc = "Show output" })
 map("n", "<leader>th", functions.tests.stop, { desc = "Stop" })
+
+-- Sessions
+map("n", "<leader>s", [[<cmd>lua require("persistence").load()<cr>]], { desc = "Resume session" })

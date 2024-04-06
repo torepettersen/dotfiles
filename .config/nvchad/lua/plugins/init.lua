@@ -10,7 +10,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
@@ -115,6 +114,26 @@ return {
     dependencies = {
       "tpope/vim-repeat",
     },
+  },
+
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {
+      options = { "buffers", "curdir", "tabpages", "winsize" },
+    },
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "User FilePost",
+    opts = function()
+      return require "configs.gitsigns"
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "git")
+      require("gitsigns").setup(opts)
+    end,
   },
 
   { "NvChad/nvterm", enabled = false },

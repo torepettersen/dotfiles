@@ -5,5 +5,6 @@ end
 set fish_greeting
 
 set -Ux NVIM_APPNAME nvchad
+set -Ux KERL_BUILD_DOCS yes
 
 /usr/bin/mise activate fish | source
