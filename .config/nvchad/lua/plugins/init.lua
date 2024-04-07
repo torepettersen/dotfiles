@@ -20,12 +20,12 @@ return {
       ensure_installed = {
         "lua-language-server",
         "stylua",
-        "html-lsp",
-        "css-lsp",
-        "prettier",
         "lexical",
         "elixir-ls",
         "nextls",
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "prettierd",
       },
     },
   },
@@ -133,6 +133,25 @@ return {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "git")
       require("gitsigns").setup(opts)
+    end,
+  },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = "User FilePost",
+    config = function()
+      require("configs.colorizer").setup()
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    },
+    opts = function(plugin, opts)
+      require("configs.cmp").options(plugin, opts)
     end,
   },
 

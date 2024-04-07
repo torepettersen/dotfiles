@@ -9,7 +9,7 @@ sudo eopkg install -y git curl fish neovim bat ripgrep fd dbeaver insomnia
 sudo eopkg install -c system.devel
 
 # Install dependencies Arch
-yay -S fish neovim xclip bat ripgrep fd dbeaver mise-bin
+yay -S fish neovim xclip bat ripgrep fd dbeaver mise-bin inotify-tools
 chsh -s /bin/fish
 
 # Erlang dependencies
