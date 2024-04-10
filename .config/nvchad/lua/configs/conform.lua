@@ -2,8 +2,9 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     css = { "prettierd" },
-    html = { "prettierd", "rustywind" },
-    elixir = { "elixir-ls", "rustywind" },
+    html = { "prettierd" },
+    json = { "prettierd" },
+    elixir = { "elixir-ls" },
     javascript = { "prettierd" },
   },
 
