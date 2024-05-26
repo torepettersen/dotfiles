@@ -6,6 +6,7 @@ local options = {
     json = { "prettierd" },
     elixir = { "elixir-ls" },
     javascript = { "prettierd" },
+    python = { "black" },
   },
 
   format_on_save = {

@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 local mason_dir = os.getenv "HOME" .. "/.local/share/nvchad/mason/"
 
 local elixir_lsp = "elixirls"
-local servers = { "lua_ls", "tsserver" }
+local servers = { "lua_ls", "tsserver", "pyright" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
