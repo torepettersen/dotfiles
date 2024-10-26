@@ -12,6 +12,9 @@ sudo eopkg install -c system.devel
 yay -S fish neovim xclip bat ripgrep fd dbeaver mise-bin inotify-tools
 chsh -s /bin/fish
 
+# Enable Magic SysRq Key (REISUB)
+echo 'kernel.sysrq=1' | sudo tee /etc/sysctl.d/99-reisub.conf
+
 # Erlang dependencies
 yay -S ncurses glu mesa wxwidgets-gtk3 libpng libssh libxslt fop
 KERL_BUILD_DOCS=yes rtx install erlang
