@@ -1,2 +1,4 @@
 [links]
 zed = { source = "zed", target = "~/.config/zed" }
+nvim = { source = "nvim", target = "~/.config/nvim" }
+nvchad = { source = "nvchad", target = "~/.config/nvchad" }
