@@ -1,0 +1,10 @@
+# Build artifacts
+/target/
+
+# Installed binaries
+/bin/
+/install
+
+# Cargo install metadata
+.crates.toml
+.crates2.json

@@ -1,0 +1,2 @@
+[links]
+zed = { source = "zed", target = "~/.config/zed" }
