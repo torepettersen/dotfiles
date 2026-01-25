@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Go to Test",
+    "command": "~/.config/zed/go_to_test.sh",
+    "shell": {
+      "program": "sh"
+    },
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "hide": "always"
+  },
+  {
+    "label": "LazyGit",
+    "command": "lazygit",
+    "shell": {
+      "program": "sh"
+    },
+    "hide": "on_success",
+    "reveal_target": "center",
+    "show_summary": false,
+    "show_command": false,
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  }
+]

@@ -31,6 +31,7 @@ alias fb="sudo systemctl restart bluetooth.service"
 alias lg="lazygit"
 alias pg="pg_ctl start >/dev/null 2>&1"
 alias phxs="iex -S mix phx.server"
+alias yayu="sudo reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist"
 
 # --- PNPM ---
 set -gx PNPM_HOME "/home/tore/.local/share/pnpm"

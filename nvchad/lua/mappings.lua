@@ -4,12 +4,12 @@ local tabufline = require "nvchad.tabufline"
 
 local map = vim.keymap.set
 
-wk.register({
-  f = { name = "Find" },
-  g = { name = "Git" },
-  t = { name = "Test" },
-  b = { name = "Buffer" },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>f", group = "Find" },
+  { "<leader>g", group = "Git" },
+  { "<leader>t", group = "Test" },
+  { "<leader>b", group = "Buffer" },
+})
 
 -- General mappings
 map("n", "<leader>q", "<cmd>:quit<cr>", { desc = "Quit" })
