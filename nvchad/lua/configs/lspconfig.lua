@@ -1,23 +1,16 @@
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
-
-local lspconfig = require "lspconfig"
+local nvchad_lsp = require("nvchad.configs.lspconfig")
 local mason_dir = os.getenv "HOME" .. "/.local/share/nvchad/mason/"
 
 local elixir_lsp = "elixirls"
-local servers = { "lua_ls", "tsserver", "pyright", "svelte" }
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
+-- Set defaults for all LSP servers
+vim.lsp.config("*", {
+  capabilities = nvchad_lsp.capabilities,
+  on_init = nvchad_lsp.on_init,
+})
 
-lspconfig.tailwindcss.setup {
-  on_init = on_init,
-  capabilities = capabilities,
+-- Configure tailwindcss
+vim.lsp.config("tailwindcss", {
   init_options = {
     userLanguages = {
       elixir = "html-eex",
@@ -25,23 +18,22 @@ lspconfig.tailwindcss.setup {
       heex = "html-eex",
     },
   },
-}
+})
 
+-- Configure Elixir LSP
 if elixir_lsp == "lexical" then
-  lspconfig.lexical.setup {
-    on_init = on_init,
-    capabilities = capabilities,
+  vim.lsp.config("lexical", {
     cmd = { mason_dir .. "packages/lexical/libexec/lexical/bin/start_lexical.sh" },
-    settings = {},
-  }
+  })
 elseif elixir_lsp == "elixirls" then
-  lspconfig.elixirls.setup {
-    on_init = on_init,
-    capabilities = capabilities,
+  vim.lsp.config("elixirls", {
     cmd = { mason_dir .. "packages/elixir-ls/language_server.sh" },
     settings = {
       dialyzerEnabled = false,
       enableTestLenses = false,
     },
-  }
+  })
 end
+
+-- Enable all servers
+vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "svelte", "tailwindcss", elixir_lsp })
